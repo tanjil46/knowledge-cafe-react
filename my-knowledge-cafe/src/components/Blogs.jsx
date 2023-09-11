@@ -19,7 +19,7 @@ const Blogs = () => {
         <div>
             <p>Lenth:{blog.length}</p>
             {
-                blog.map(blogdata=><Blogdata blogdata={blogdata}></Blogdata>)
+                blog.map(blogdata=><Blogdata key={blog.id} blogdata={blogdata}></Blogdata>)
             }
         </div>
     );
