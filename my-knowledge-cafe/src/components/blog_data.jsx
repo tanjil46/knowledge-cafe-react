@@ -1,13 +1,13 @@
  
- 
+import { FaBookmark } from 'react-icons/fa';
  import PropTypes from 'prop-types';
  
- export default function Blogdata( { blogdata }){
+ export default function Blogdata( { blogdata,btnHandler,readingTimeHandler }){
 
 console.log(blogdata);
 
 
-const{title,cover,author,author_img,reading_time,posted_date,hashtags}=blogdata;
+const{id,title,cover,author,author_img,reading_time,posted_date,hashtags}=blogdata;
 
 
 
@@ -29,7 +29,7 @@ return(
         </div>
 
         <div className="">
-         <p>{reading_time} min read</p>
+         <p>{reading_time} min read  <button onClick={()=>btnHandler(blogdata)} className='text-xl text-red-400'><FaBookmark></FaBookmark></button></p>
         </div>
     
       </div>
@@ -37,8 +37,12 @@ return(
         <p>
             {
                 hashtags.map((hash,idx)=> <span key={idx}><a href=''>#{hash}</a></span>)
-            }
+                  
+         }
+
         </p>
+
+        <button onClick={()=>readingTimeHandler(reading_time,id)} className='p-4 text-blue-700'>Mark As read</button>
 
 
 
@@ -53,4 +57,5 @@ return(
 
  Blogdata.PropTypes={
     blogdata:PropTypes.object.isRequired
+   
  }

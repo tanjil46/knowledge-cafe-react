@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Blogdata from "./blog_data";
 
 
-const Blogs = () => {
+const Blogs = ({btnHandler,readingTimeHandler}) => {
 
   const [blog,setBlog]=useState([])
 
@@ -19,7 +19,7 @@ const Blogs = () => {
         <div>
             <p>Lenth:{blog.length}</p>
             {
-                blog.map(blogdata=><Blogdata key={blog.id} blogdata={blogdata}></Blogdata>)
+                blog.map(blogdata=><Blogdata readingTimeHandler={readingTimeHandler} btnHandler={btnHandler} key={blog.id} blogdata={blogdata}></Blogdata>)
             }
         </div>
     );
